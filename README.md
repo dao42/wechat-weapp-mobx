@@ -59,7 +59,7 @@
 2. 绑定页面联动事件
 
     ```js
-    var observer = require('../utils/observer').observer;
+    var observer = require('../libs/observer').observer;
     Page(observer({
       props: {
         todoStore: require('../stores/todoStore').default,
