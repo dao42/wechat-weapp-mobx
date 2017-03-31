@@ -29,7 +29,7 @@
 1. 创建 mobx 的 stores
 
     ```js
-      var mobx = require('../libs/mobx');
+      var extendObservable = require('../libs/mobx').extendObservable;
       var TodoStore = function() {
         extendObservable(this, {
           // observable data
@@ -43,7 +43,7 @@
 
         // action
         this.addTodo = function(title) {
-          this.todos.push( new TodoItem(title) );
+          this.todos.push( {title: title} );
         }
 
         this.removeTodo = function() {
