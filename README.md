@@ -86,7 +86,7 @@ git clone -b release https://github.com/80percent/wechat-weapp-mobx-todos.git
 
 ## 类似框架
 
-[wechat-weapp-redux-todos](https://github.com/charleyw/wechat-weapp-redux)
+[wechat-weapp-redux](https://github.com/charleyw/wechat-weapp-redux)
 
 ## 感谢
 
