@@ -43,7 +43,7 @@
 
         // action
         this.addTodo = function(title) {
-          this.todos.push( {title: title} );
+          this.todos.push( {title: title} );
         }
 
         this.removeTodo = function() {
