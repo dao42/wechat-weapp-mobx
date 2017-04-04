@@ -13,7 +13,7 @@ var observer = function(page){
     Object.getOwnPropertyNames(object).forEach( function(propertyName){
       if(propertyName === "$mobx"){ return };
       var descriptor = Object.getOwnPropertyDescriptor(object, propertyName);
-      if( descriptor && !descriptor.writable ){
+      if( descriptor && !descriptor.enumerable && !descriptor.writable ){
         res[propertyName] = object[propertyName];
       }
     })
