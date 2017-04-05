@@ -81,7 +81,7 @@
 真机实测版请clone下面这个repo，用小程序开发工具开启预览:
 
 ```
-git clone -b release https://github.com/80percent/wechat-weapp-mobx-todos.git
+git clone https://github.com/80percent/wechat-weapp-mobx-todos.git
 ```
 
 ## 类似框架
