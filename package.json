@@ -1,4 +1,4 @@
 {
   name: 'wechat-weapp-mobx',
-  version: 'wechat weapp mbox binding',
+  version: '0.1.1',
 }
