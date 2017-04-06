@@ -74,6 +74,17 @@
 
     完成上述两步之后,你就可以在 wxml 中用 `props.todoStore` 这种方式来访问了, 并且数据联动已经自动工作.
 
+## 版本更新记录
+
+### 0.1.1
+
+* 优化性能, 避免重复的 mobx toJS 对象.
+* 添加版本号支持.
+
+### 0.1.0
+
+实现 mobx 核心支持.
+
 ## Example
 
 详细的使用例子可以参照: [wechat-weapp-mobx-todos](https://github.com/80percent/wechat-weapp-mobx-todos)
