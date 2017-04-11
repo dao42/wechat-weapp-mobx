@@ -37,7 +37,7 @@ var observer = function(page){
   page._update = function() {
     //console.log('_update');
     var newData = {};
-    var props = this.props;
+    var props = this.props || {};
     this.setData({props: toJS(props)});
   }
 
