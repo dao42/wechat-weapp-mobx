@@ -64,7 +64,7 @@ var toJS = function(source, detectCycles, __alreadySeen) {
         return toJS(value);
       });
     }
-    if (typeof source === 'object') {
+    if (source !== null && typeof source === 'object') {
       var res = {};
       for (var key in source){
         res[key] = toJS(source[key]);
