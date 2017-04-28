@@ -75,7 +75,6 @@ var toJS = function(source, detectCycles, __alreadySeen) {
 }
 
 var observer = function(page){
-  var connected = observable(false);
 
   var oldOnLoad = page.onLoad;
   var oldOnUnload = page.onUnload;
@@ -93,15 +92,9 @@ var observer = function(page){
     // support observable props here
     that.props = mobx.observable(that.props);
 
-    action(function() {
-      connected.set(true)
-    })();
-
-    autorun( function(){
+    that._autorun = autorun( function(){
       //console.log('autorun');
-      if( connected.get() ){
-        that._update();
-      }
+      that._update();
     });
 
     if( oldOnLoad ) {
@@ -110,11 +103,8 @@ var observer = function(page){
   }
 
   page.onUnload = function() {
-    if (connected.get()) {
-      action(function() {
-        connected.set(false)
-      })();
-    }
+    // clear autorun
+    this._autorun();
 
     if( oldOnUnload ) {
       oldOnUnload.apply(this, arguments);
@@ -127,5 +117,5 @@ var observer = function(page){
 module.exports = {
   observer: observer,
   toJSWithGetter: toJS,
-  version: '0.1.2',
+  version: '0.1.3',
 }
