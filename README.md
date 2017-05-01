@@ -108,9 +108,5 @@ git clone https://github.com/80percent/wechat-weapp-mobx-todos.git
 
 [wechat-weapp-redux](https://github.com/charleyw/wechat-weapp-redux)
 
-## 感谢
-
-此框架关键代码受 [Labrador](https://github.com/maichong/labrador) 启发完成, 特此感谢.
-
 ## 协议( LICENSE )
 MIT
