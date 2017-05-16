@@ -94,7 +94,7 @@
 
 * 实现 mobx 核心支持.
 
-## Example
+## 示例
 
 详细的使用例子可以参照: [wechat-weapp-mobx-todos](https://github.com/80percent/wechat-weapp-mobx-todos)
 
@@ -104,9 +104,13 @@
 git clone https://github.com/80percent/wechat-weapp-mobx-todos.git
 ```
 
-## 类似框架
+## 实际案例
 
-[wechat-weapp-redux](https://github.com/charleyw/wechat-weapp-redux)
+**Ballu -- 一个实时的篮球计分工具**
+
+> 点评: 此项目是一个 "复杂" 的小程序, 深度使用 wechat-weapp-mobx 作为数据驱动层后, 数据状态同步的问题轻松化解. 最终项目成功上线.
+
+![ballu](img/ballu.png)
 
 ## 协议( LICENSE )
 MIT
