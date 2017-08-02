@@ -1,6 +1,9 @@
 
-微信小程序mobx绑定( wechat weapp mobx )
+微信小程序 mobx 绑定( wechat weapp mobx )
 ==============
+
+页面间通信的利器
+
 为你的小程序添加mobx数据层驱动
 
 当前版本: 0.1.3
