@@ -1,4 +1,5 @@
 var mobx = require('./mobx');
+var diff = require('./diff').default;
 var autorun = mobx.autorun;
 var observable = mobx.observable;
 var action = mobx.action;
@@ -80,10 +81,17 @@ var observer = function(page){
   var oldOnUnload = page.onUnload;
 
   page._update = function() {
-    //console.log('_update');
-    var newData = {};
+    // console.log('_update');
     var props = this.props || {};
-    this.setData({props: toJS(props)});
+    var diffProps = diff(toJS(props), this.data.props);
+    if (Object.keys(diffProps).length > 0) {
+      var hash = {};
+      for (var key in diffProps) {
+        var hash_key = 'props' + '.' + key;
+        hash[hash_key] = diffProps[key]
+      }
+      this.setData(hash);
+    }
   }
 
   page.onLoad = function() {
