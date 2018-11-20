@@ -6,7 +6,7 @@
 
 为你的小程序添加mobx数据层驱动
 
-当前版本: 0.1.3
+当前版本: 0.1.4
 
 依赖 mobx 版本: 3.1.7
 
@@ -16,11 +16,12 @@
    ```shell
     git clone https://github.com/80percent/wechat-weapp-mbox
    ```
-2. 将 `mobx.js` 和 `observer.js` 文件直接拷贝到小程序的工程中,例如 (下面假设我们把第三方包都安装在libs目录下):
+2. 将 `mobx.js`, `diff.js` 和 `observer.js` 文件直接拷贝到小程序的工程中,例如 (下面假设我们把第三方包都安装在libs目录下):
 
    ```shell
     cd wechat-weapp-mobx
     cp mobx.js <小程序根目录>/libs
+    cp diff.js <小程序根目录>/libs
     cp observer.js <小程序根目录>/libs
    ```
 
@@ -78,6 +79,10 @@
     完成上述两步之后,你就可以在 wxml 中用 `props.todoStore` 这种方式来访问了, 并且数据联动已经自动工作.
 
 ## 版本更新记录
+
+### 0.1.4
+
+* 增加 diff 流程, 大幅提高触发性能.
 
 ### 0.1.3
 
