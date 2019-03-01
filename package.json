@@ -1,4 +1,23 @@
 {
-  'name': 'wechat-weapp-mobx',
-  'version': '0.1.3',
+  "name": "wechat-weapp-mobx",
+  "version": "0.1.5",
+  "description": "微信小程序 mobx 绑定( wechat weapp mobx )",
+  "main": "observer.js",
+  "miniprogram": "dist",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/80percent/wechat-weapp-mobx.git"
+  },
+  "author": "windy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/80percent/wechat-weapp-mobx/issues"
+  },
+  "homepage": "https://github.com/80percent/wechat-weapp-mobx#readme"
 }
