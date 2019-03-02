@@ -6,11 +6,22 @@
 
 为你的小程序添加mobx数据层驱动
 
-当前版本: 0.1.5
+当前版本: 0.1.6
 
 依赖 mobx 版本: 3.1.7
 
 ## 安装
+
+### 方式一: npm 包( 推荐 )
+
+小程序已经支持使用 npm 安装第三方包，详见 [npm 支持](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html?search-key=npm)
+
+```shell
+npm install wechat-weapp-mobx -S --production
+```
+
+### 方式二: 手动安装
+
 1. clone或者下载代码库到本地:
 
    ```shell
@@ -33,39 +44,45 @@
 1. 创建 mobx 的 stores
 
     ```js
-      // <小程序根目录>/stores/todoStore.js
-      var extendObservable = require('../../libs/mobx').extendObservable;
-      var TodoStore = function() {
-        extendObservable(this, {
-          // observable data
-          todos: [],
-          todoText: 'aaa',
-          // computed data
-          get count() {
-            return this.todos.length;
-          }
-        });
-
-        // action
-        this.addTodo = function(title) {
-          this.todos.push( {title: title} );
+    // <小程序根目录>/stores/todoStore.js
+    // 手动安装时引入的路径
+    // var extendObservable = require('../../libs/mobx').extendObservable;
+    // npm 包安装引入的路径
+    var extendObservable = require('wechat-weapp-mobx/mobx').extendObservable;
+    var TodoStore = function() {
+      extendObservable(this, {
+        // observable data
+        todos: [],
+        todoText: 'aaa',
+        // computed data
+        get count() {
+          return this.todos.length;
         }
+      });
 
-        this.removeTodo = function() {
-          this.todos.pop();
-        }
+      // action
+      this.addTodo = function(title) {
+        this.todos.push( {title: title} );
       }
 
-      module.exports = {
-        default: new TodoStore,
+      this.removeTodo = function() {
+        this.todos.pop();
       }
+    }
+
+    module.exports = {
+      default: new TodoStore,
+    }
     ```
 
 2. 绑定页面联动事件
 
     ```js
     // <小程序根目录>/pages/index/index.js
-    var observer = require('../libs/observer').observer;
+    // 手动安装时引入的路径
+    // var observer = require('../libs/observer').observer;
+    // npm 包安装引入的路径
+    var observer = require('wechat-weapp-mobx/observer').observer;
     // 关键, 监控页面事件, 让 mobx 有机会更新页面数据
     Page(observer({
       props: {
@@ -123,7 +140,17 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 
 * 实现 mobx 核心支持.
 
-## 示例
+## 示例( npm 演示 )
+
+详细的使用例子可以参照: [wechat-weapp-mobx-todos-npm](https://github.com/windy/wechat-weapp-mobx-todos-npm)
+
+真机实测版请clone下面这个repo，用小程序开发工具开启预览:
+
+```
+git clone https://github.com/windy/wechat-weapp-mobx-todos-npm.git
+```
+
+## 示例( 手动安装 )
 
 详细的使用例子可以参照: [wechat-weapp-mobx-todos](https://github.com/80percent/wechat-weapp-mobx-todos)
 
