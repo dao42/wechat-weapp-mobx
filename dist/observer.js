@@ -7,18 +7,8 @@ var action = mobx.action;
 var isObservable = mobx.isObservable;
 var isObservableArray = mobx.isObservableArray;
 var isObservableObject = mobx.isObservableObject;
-var isObservableValue = mobx.isObservableValue;
+var isBoxedObservable = mobx.isBoxedObservable;
 var isObservableMap = mobx.isObservableMap;
-
-var _mergeGetterValue = function(res, object){
-  Object.getOwnPropertyNames(object).forEach( function(propertyName){
-    if(propertyName === "$mobx"){ return };
-    var descriptor = Object.getOwnPropertyDescriptor(object, propertyName);
-    if( descriptor && !descriptor.enumerable && !descriptor.writable ){
-      res[propertyName] = toJS(object[propertyName]);
-    }
-  })
-}
 
 var toJS = function(source, detectCycles, __alreadySeen) {
     if (detectCycles === void 0) { detectCycles = true; }
@@ -46,9 +36,20 @@ var toJS = function(source, detectCycles, __alreadySeen) {
         }
         if (isObservableObject(source)) {
             var res = cache({});
-            for (var key in source)
-                res[key] = toJS(source[key], detectCycles, __alreadySeen);
-            _mergeGetterValue(res, source);
+
+            Object.getOwnPropertyNames(source).forEach( function(propertyName){
+              if(propertyName === "$mobx"){ return };
+
+              // deal getter property
+              var descriptor = Object.getOwnPropertyDescriptor(source, propertyName);
+              if( descriptor && !descriptor.enumerable && !descriptor.writable ){
+                res[propertyName] = toJS(source[propertyName], detectCycles, __alreadySeen);
+                return;
+              }
+
+              res[propertyName] = toJS(source[propertyName], detectCycles, __alreadySeen);
+            })
+
             return res;
         }
         if (isObservableMap(source)) {
@@ -56,7 +57,7 @@ var toJS = function(source, detectCycles, __alreadySeen) {
             source.forEach(function (value, key) { return res_1[key] = toJS(value, detectCycles, __alreadySeen); });
             return res_1;
         }
-        if (isObservableValue(source))
+        if (isBoxedObservable(source))
             return toJS(source.get(), detectCycles, __alreadySeen);
     }
 
@@ -125,5 +126,5 @@ var observer = function(page){
 module.exports = {
   observer: observer,
   toJSWithGetter: toJS,
-  version: '0.1.4',
+  version: '0.1.5',
 }

@@ -6,7 +6,7 @@
 
 为你的小程序添加mobx数据层驱动
 
-当前版本: 0.1.4
+当前版本: 0.1.5
 
 依赖 mobx 版本: 3.1.7
 
@@ -16,7 +16,7 @@
    ```shell
     git clone https://github.com/80percent/wechat-weapp-mbox
    ```
-2. 将 `mobx.js`, `diff.js` 和 `observer.js` 文件直接拷贝到小程序的工程中,例如 (下面假设我们把第三方包都安装在libs目录下):
+2. 将 `dist/mobx.js`, `dist/diff.js` 和 `dist/observer.js` 文件直接拷贝到小程序的工程中,例如 (下面假设我们把第三方包都安装在libs目录下):
 
    ```shell
     cd wechat-weapp-mobx
@@ -25,15 +25,16 @@
     cp observer.js <小程序根目录>/libs
    ```
 
-    上面的命令将包拷贝到小程序的`libs`目录下
+    上面的命令将包拷贝到小程序的`<小程序根目录>/libs`目录下
 
-3. 创建一个 `stores` 目录, 存放数据层.
+3. 创建一个 `<小程序根目录>/stores` 目录, 存放数据层.
 
 ## 使用
 1. 创建 mobx 的 stores
 
     ```js
-      var extendObservable = require('../libs/mobx').extendObservable;
+      // <小程序根目录>/stores/todoStore.js
+      var extendObservable = require('../../libs/mobx').extendObservable;
       var TodoStore = function() {
         extendObservable(this, {
           // observable data
@@ -63,7 +64,9 @@
 2. 绑定页面联动事件
 
     ```js
+    // <小程序根目录>/pages/index/index.js
     var observer = require('../libs/observer').observer;
+    // 关键, 监控页面事件, 让 mobx 有机会更新页面数据
     Page(observer({
       props: {
         todoStore: require('../stores/todoStore').default,
@@ -78,11 +81,25 @@
 
     完成上述两步之后,你就可以在 wxml 中用 `props.todoStore` 这种方式来访问了, 并且数据联动已经自动工作.
 
+    ```js
+    // <小程序根目录>/pages/index/index.wxml
+    <view>{{props.todoStore.todoText}}</view>
+    ```
+
+4. 数据自动联动
+
+stores 中的数据可以跨页面同时访问，并且数据更新后，页面也会自动更新。从而节省大量逻辑代码。
+
 ## 版本更新记录
+
+### 0.1.5
+
+* 优化 toJSWithGetter 接口, 性能再次提升2倍.
+* 调整目录, 发布 npm 包.
 
 ### 0.1.4
 
-* 增加 diff 流程, 大幅提高触发性能.
+* 增加 diff 流程, 大幅提高触发性能
 
 ### 0.1.3
 
@@ -116,7 +133,7 @@ git clone https://github.com/80percent/wechat-weapp-mobx-todos.git
 
 **Ballu -- 一个实时的篮球计分工具**
 
-> 点评: 此项目是一个 "复杂" 的小程序, 深度使用 wechat-weapp-mobx 作为数据驱动层后, 数据状态同步的问题轻松化解. 最终项目成功上线.
+> 点评: 此项目是一个非常 "复杂" 的小程序, 项目多处页面需要使用 websocket 与服务端进行同步的数据更新, 深度使用 `wechat-weapp-mobx` 作为数据驱动层后, 数据状态同步的问题轻松化解. 最终项目成功上线.
 
 ![ballu](img/ballu.png)
 
