@@ -84,7 +84,7 @@ var observer = function(page){
   page._update = function() {
     // console.log('_update');
     var props = this.props || {};
-    var diffProps = diff(toJS(props), this.data.props);
+    var diffProps = diff(toJS(props), this.data.props || {});
     if (Object.keys(diffProps).length > 0) {
       var hash = {};
       for (var key in diffProps) {

@@ -1,6 +1,6 @@
 {
   "name": "wechat-weapp-mobx",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "微信小程序 mobx 绑定( wechat weapp mobx )",
   "main": "observer.js",
   "miniprogram": "dist",
