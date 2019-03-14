@@ -40,7 +40,7 @@ npm install wechat-weapp-mobx -S --production
 
 3. 创建一个 `<小程序根目录>/stores` 目录, 存放数据层.
 
-## 使用
+## 使用( 使用 ES5 语法 )
 1. 创建 mobx 的 stores
 
     ```js
@@ -107,6 +107,10 @@ npm install wechat-weapp-mobx -S --production
 
 stores 中的数据可以跨页面同时访问，并且数据更新后，页面也会自动更新。从而节省大量逻辑代码。
 
+## ES6 语法示例
+
+请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/windy/wechat-weapp-mobx-todos-npm)
+
 ## 版本更新记录
 
 ### 0.1.8
@@ -152,7 +156,7 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 
 * 实现 mobx 核心支持.
 
-## 示例( npm 演示 )
+## 示例( npm 整合，ES6 语法演示 )
 
 详细的使用例子可以参照: [wechat-weapp-mobx-todos-npm](https://github.com/windy/wechat-weapp-mobx-todos-npm)
 
