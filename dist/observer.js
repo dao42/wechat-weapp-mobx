@@ -81,7 +81,7 @@ var observer = function(page){
   var oldOnLoad = page.onLoad;
   var oldOnUnload = page.onUnload;
 
-  // thanks to 杨帆
+  // thanks to Danney
   // Using closure to ignore weapp framework upating props mobx object, causing mobx array initialize fail
   var _props = page.props || {};
   delete page.props;
