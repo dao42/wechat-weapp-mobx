@@ -109,7 +109,7 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 
 ## ES6 语法示例
 
-请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/windy/wechat-weapp-mobx-todos-npm)
+请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/80percent/wechat-weapp-mobx-todos-npm)
 
 ## 版本更新记录
 
@@ -118,7 +118,7 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 * （重大）正式升级 mobx 至 4.9.2 版本，支持最新的 mobx 装饰器语法。
 * 尝试性支持 ES6 语法，如有bug，请及时反馈。
 
-非常感谢 [杨帆大神](https://github.com/dannnney) 的技术贡献。
+感谢 [Danney](https://github.com/dannnney) 的贡献。
 
 ### 0.1.7 (勿用)
 
@@ -158,12 +158,12 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 
 ## 示例( npm 整合，ES6 语法演示 )
 
-详细的使用例子可以参照: [wechat-weapp-mobx-todos-npm](https://github.com/windy/wechat-weapp-mobx-todos-npm)
+详细的使用例子可以参照: [wechat-weapp-mobx-todos-npm](https://github.com/80percent/wechat-weapp-mobx-todos-npm)
 
 真机实测版请clone下面这个repo，用小程序开发工具开启预览:
 
 ```
-git clone https://github.com/windy/wechat-weapp-mobx-todos-npm.git
+git clone https://github.com/80percent/wechat-weapp-mobx-todos-npm.git
 ```
 
 ## 示例( 手动安装 )
