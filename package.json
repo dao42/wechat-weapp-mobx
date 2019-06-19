@@ -1,6 +1,6 @@
 {
   "name": "wechat-weapp-mobx",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "微信小程序 mobx 绑定( wechat weapp mobx )",
   "main": "observer.js",
   "miniprogram": "dist",
@@ -12,12 +12,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/80percent/wechat-weapp-mobx.git"
+    "url": "git+https://github.com/dao42/wechat-weapp-mobx.git"
   },
   "author": "windy",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/80percent/wechat-weapp-mobx/issues"
+    "url": "https://github.com/dao42/wechat-weapp-mobx/issues"
   },
-  "homepage": "https://github.com/80percent/wechat-weapp-mobx#readme"
+  "homepage": "https://github.com/dao42/wechat-weapp-mobx#readme"
 }

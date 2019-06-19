@@ -6,7 +6,7 @@
 
 为你的小程序添加mobx数据层驱动
 
-当前版本: 0.1.8
+当前版本: 0.1.9
 
 依赖 mobx 版本: 4.9.2
 
@@ -112,6 +112,13 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/80percent/wechat-weapp-mobx-todos-npm)
 
 ## 版本更新记录
+
+### 0.1.9
+
+* （稳定性）经一段时间验证，项目稳定支持 mobx 4.9.2 版本。
+* 优化：修复一个可能引发联动问题的 observer 问题。
+* 优化：调整 Unload callback 执行顺序。
+* 推荐 0.1.8 的用户升级至 0.1.9。
 
 ### 0.1.8
 
