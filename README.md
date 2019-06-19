@@ -191,5 +191,13 @@ git clone https://github.com/80percent/wechat-weapp-mobx-todos.git
 
 ![ballu](img/ballu.png)
 
+## 开发( 发布 npm 版本 )
+
+```bash
+$ npm login --registry https://registry.npmjs.org/
+$ npm publish
+```
+
 ## 协议( LICENSE )
+
 MIT
