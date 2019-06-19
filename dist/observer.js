@@ -83,7 +83,7 @@ var observer = function(page){
 
   // thanks to Danney
   // Using closure to ignore weapp framework upating props mobx object, causing mobx array initialize fail
-  var _props = page.props || {};
+  var _props = mobx.observable(page.props) || {};
   delete page.props;
 
   page._update = function() {
@@ -102,9 +102,8 @@ var observer = function(page){
 
   page.onLoad = function() {
     var that = this;
-
     // support observable props here
-    that.props = mobx.observable(_props);
+    that.props = _props;
 
     that._autorun = autorun( function(){
       //console.log('autorun');
@@ -112,17 +111,17 @@ var observer = function(page){
     });
 
     if( oldOnLoad ) {
-      oldOnLoad.apply(this, arguments);
+      oldOnLoad.apply(that, arguments);
     }
   }
 
   page.onUnload = function() {
-    // clear autorun
-    this._autorun();
-
     if( oldOnUnload ) {
       oldOnUnload.apply(this, arguments);
     }
+
+    // clear autorun
+    this._autorun();
   }
 
   return page;
