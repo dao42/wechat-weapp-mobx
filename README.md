@@ -25,7 +25,7 @@ npm install wechat-weapp-mobx -S --production
 1. clone或者下载代码库到本地:
 
    ```shell
-    git clone https://github.com/80percent/wechat-weapp-mbox
+    git clone https://github.com/dao42/wechat-weapp-mbox
    ```
 2. 将 `dist/mobx.js`, `dist/diff.js` 和 `dist/observer.js` 文件直接拷贝到小程序的工程中,例如 (下面假设我们把第三方包都安装在libs目录下):
 
