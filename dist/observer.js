@@ -86,6 +86,12 @@ var observer = function(page){
   var _props = mobx.observable(page.props) || {};
   delete page.props;
 
+  // Inject props to data ASAP, fix: https://github.com/dao42/wechat-weapp-mobx/issues/17
+  if( !page.data ){
+    page.data = {}
+  };
+  page.data.props = toJS(_props);
+
   page._update = function() {
     // console.log('_update');
     var props = _props || {};

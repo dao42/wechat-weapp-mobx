@@ -6,7 +6,7 @@
 
 为你的小程序添加mobx数据层驱动
 
-当前版本: 0.1.9
+当前版本: 0.2.0
 
 依赖 mobx 版本: 4.9.2
 
@@ -109,9 +109,13 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 
 ## ES6 语法示例
 
-请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/80percent/wechat-weapp-mobx-todos-npm)
+请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/dao42/wechat-weapp-mobx-todos-npm)
 
 ## 版本更新记录
+
+### 0.2.0
+
+* 优化：提前将 props 注入 `page.data`，避免页面渲染过慢。
 
 ### 0.1.9
 
@@ -165,22 +169,22 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 
 ## 示例( npm 整合，ES6 语法演示 )
 
-详细的使用例子可以参照: [wechat-weapp-mobx-todos-npm](https://github.com/80percent/wechat-weapp-mobx-todos-npm)
+详细的使用例子可以参照: [wechat-weapp-mobx-todos-npm](https://github.com/dao42/wechat-weapp-mobx-todos-npm)
 
 真机实测版请clone下面这个repo，用小程序开发工具开启预览:
 
 ```
-git clone https://github.com/80percent/wechat-weapp-mobx-todos-npm.git
+git clone https://github.com/dao42/wechat-weapp-mobx-todos-npm.git
 ```
 
 ## 示例( 手动安装 )
 
-详细的使用例子可以参照: [wechat-weapp-mobx-todos](https://github.com/80percent/wechat-weapp-mobx-todos)
+详细的使用例子可以参照: [wechat-weapp-mobx-todos](https://github.com/dao42/wechat-weapp-mobx-todos)
 
 真机实测版请clone下面这个repo，用小程序开发工具开启预览:
 
 ```
-git clone https://github.com/80percent/wechat-weapp-mobx-todos.git
+git clone https://github.com/dao42/wechat-weapp-mobx-todos.git
 ```
 
 ## 实际案例
