@@ -94,16 +94,6 @@ npm install wechat-weapp-mobx -S --production
     }))
     ```
 
-3. 绑定组件联动事件
-
-```js
-Component(observerComponment({
-  props: {
-    todoStore: require('../stores/todoStore').default,
-  }  
-}))
-```
-
 3. 说明
 
     完成上述两步之后,你就可以在 wxml 中用 `props.todoStore` 这种方式来访问了, 并且数据联动已经自动工作.
@@ -116,6 +106,18 @@ Component(observerComponment({
 4. 数据自动联动
 
 stores 中的数据可以跨页面同时访问，并且数据更新后，页面也会自动更新。从而节省大量逻辑代码。
+
+## 组件中使用
+
+* 绑定组件联动事件
+
+```js
+Component(observerComponment({
+  props: {
+    todoStore: require('../stores/todoStore').default
+  }  
+}))
+```
 
 ## ES6 语法示例
 
