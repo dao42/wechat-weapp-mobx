@@ -133,8 +133,68 @@ var observer = function(page){
   return page;
 }
 
+var observerComponment = function(page){
+
+  var oldAttached = page.attached;
+  var oldDetached = page.detached;
+
+  // thanks to Danney
+  // Using closure to ignore weapp framework upating props mobx object, causing mobx array initialize fail
+  var _props = mobx.observable(page.props) || {};
+  delete page.props;
+
+  // Inject props to data ASAP, fix: https://github.com/dao42/wechat-weapp-mobx/issues/17
+  if( !page.data ){
+    page.data = {}
+  };
+  page.data.props = toJS(_props);
+
+  var _update = function() {
+    // console.log('_update');
+    var props = _props || {};
+    var diffProps = diff(toJS(props), this.data.props || {});
+    if (Object.keys(diffProps).length > 0) {
+      var hash = {};
+      for (var key in diffProps) {
+        var hash_key = 'props' + '.' + key;
+        hash[hash_key] = diffProps[key]
+      }
+      this.setData(hash);
+    }
+  }
+
+  var _autorun = null
+
+  page.attached = function() {
+    var that = this;
+    // support observable props here
+    that.props = _props;
+
+    _autorun = autorun( function(){
+      //console.log('autorun');
+      _update.apply(that);
+    });
+
+    if( oldAttached ) {
+      oldAttached.apply(that, arguments);
+    }
+  }
+
+  page.detached = function() {
+    if( oldDetached ) {
+      oldDetached.apply(this, arguments);
+    }
+
+    // clear autorun
+    _autorun();
+  }
+
+  return page;
+}
+
 module.exports = {
   observer: observer,
+  observerComponment: observerComponment,
   toJSWithGetter: toJS,
   version: null,
 }

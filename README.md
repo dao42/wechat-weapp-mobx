@@ -107,6 +107,18 @@ npm install wechat-weapp-mobx -S --production
 
 stores 中的数据可以跨页面同时访问，并且数据更新后，页面也会自动更新。从而节省大量逻辑代码。
 
+## 组件中使用
+
+* 绑定组件联动事件
+
+```js
+Component(observerComponment({
+  props: {
+    todoStore: require('../stores/todoStore').default
+  }  
+}))
+```
+
 ## ES6 语法示例
 
 请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/dao42/wechat-weapp-mobx-todos-npm)
