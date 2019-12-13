@@ -115,7 +115,7 @@ stores 中的数据可以跨页面同时访问，并且数据更新后，页面�
 Component(observerComponment({
   props: {
     todoStore: require('../stores/todoStore').default
-  }  
+  }
 }))
 ```
 
@@ -124,6 +124,10 @@ Component(observerComponment({
 请直接查看示例: [wechat-weapp-mobx-todos-npm](https://github.com/dao42/wechat-weapp-mobx-todos-npm)
 
 ## 版本更新记录
+
+### 0.2.1
+
+* 支持组件中使用 `observerComponment` 语法
 
 ### 0.2.0
 
